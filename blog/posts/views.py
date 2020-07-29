@@ -28,7 +28,7 @@ def create(request):
 
 # READ(index, detail)
 def index(request):
-    posts = Post.objects.all() # posts는 게시글이 담긴 배열
+    posts = Post.objects.all().order_by('id') # posts는 게시글이 담긴 배열
     paginator = Paginator(posts, 3) # 페이지네이터 함수 사용
     page_number = request.GET.get("page") # 페이지 넘버 가져오기
     page_posts = paginator.get_page(page_number)
@@ -36,4 +36,9 @@ def index(request):
 
 def detail(request, post_id):
     post = get_object_or_404(Post, pk = post_id)
+    # 댓글 리스트 코드
     return render(request, 'posts/detail.html', {"post":post})
+
+# 댓글 생성
+# 댓글 업데이트
+# 댓글 삭제
