@@ -40,5 +40,5 @@ def detail(request, post_id):
     return render(request, 'posts/detail.html', {"post":post})
 
 # 댓글 생성
-# 댓글 업데이트
+# 댓글 수정
 # 댓글 삭제
