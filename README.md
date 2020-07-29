@@ -115,7 +115,8 @@ path를 등록하여 웹상에서 해당 리소스, 자원 등을 찾을 수 있
     # CREATE(comment_create)
     path('comment_new/<int:post_id>', views.comment_new, name='comment_new'),
 ```
-#댓글 
+
+#댓글 수정(Update)
 ## views.py Update 함수 생성
 ```python
 # 댓글 수정
@@ -134,11 +135,46 @@ def comment_update(request, comment_id):
         form = CommentForm(instance=cur_comment)
     return render(request, 'posts/comment_update.html', {'form': form})
 ```
+## urls.py path 추가
+```python
+    #UPDATE(update)
+    path('update/<int:comment_id>', views.comment_update, name='update'),
+```
 
-
-
+## comment_update.html 생성
+```python 
+{% extends 'base.html' %}
+{% block contents %}
+<!--content -->
+<div class='container' style="padding-top: 4rem;">
+    <form method = 'post' enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <br>
+        <input class="btn btn-dart" type = "submit" value = "제출하기">
+    </form>
+</div>
+<!-- //content -->
+{% endblock %}
+```
+# 댓글 삭제(Delete)
+## view.py 삭제 함수 코드
+```python
+# 댓글 삭제
+def comment_delete(request, comment_id):
+    comment = get_object_or_404(Comment, pk=comment_id) # 해당 코멘트 가져오기
+    if request.user != comment.author: # 댓글을 달은 유저인지 확인
+        return redirect('/posts/'+str(comment.post.id))
+    else:
+        comment.delete() # 댓글 삭제 메소드
+    return redirect('/posts/'+str(comment.post.id))
+```
+## detail.html 수정, 삭제 버튼 추가
+```html
                             <div>
                                 <a href="{% url 'update' comment.id %}" class="btn btn-primary">수정</a>
                                 <a href="{% url 'delete' comment.id %}" class="btn btn-danger">Delete</a>
                             </div>
-
+```
