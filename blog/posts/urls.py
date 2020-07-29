@@ -11,8 +11,9 @@ urlpatterns = [
     path('create/', views.create, name="create"),
     # READ(detail)
     path('<int:post_id>/', views.detail, name='detail'),
-    # UPDATE(update)
-    # DELETE(delete)
+    # 댓글 생성(comment_new)
+    # 댓글 수정(comment_update)
+    # 댓글 삭제(comment_delete)
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
