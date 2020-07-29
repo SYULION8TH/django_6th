@@ -116,7 +116,7 @@ path를 등록하여 웹상에서 해당 리소스, 자원 등을 찾을 수 있
     path('comment_new/<int:post_id>', views.comment_new, name='comment_new'),
 ```
 
-#댓글 수정(Update)
+# 댓글 수정(Update)
 ## views.py Update 함수 생성
 ```python
 # 댓글 수정
