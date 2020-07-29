@@ -1,4 +1,4 @@
-# Django 5회차
-- [x] login, signup 이론, 실습
-- [x] template 상속
-- [x] url 관리
+# Django 6회차
+- [x] Comment
+- [x] Update
+- [x] Delete
