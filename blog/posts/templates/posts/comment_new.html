@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block contents %}
+<!--content -->
+<div class='container' style="padding-top: 4rem;">
+    <form method = 'post' enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <br>
+        <input class="btn btn-dart" type = "submit" value = "제출하기">
+    </form>
+</div>
+<!-- //content -->
+{% endblock %}

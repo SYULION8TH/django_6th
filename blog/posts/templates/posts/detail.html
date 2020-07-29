@@ -24,6 +24,33 @@
             </div>
         </div>
     </div>   
+    <!-- 댓글 목록 -->
+    <div class="card mb-2">
+        <h5 class="mt-0" style="padding-left: 20px; padding-top: 20px">댓글</h5>
+        <div class="card-body">
+            {% for comment in post.comments.all %} <!-- post에 comments필드가 생기고 그 comments의 모든 것을 가져온다. -->
+            <div class="card mb-2">
+                <div class="card-body">
+                    <div class="media">
+                        <div class="media-body">
+                            <small class="text-muted">작성일 | {{comment.created_at}}</small>
+                            <p>{{ comment.author }}: {{ comment.text }}</p>
+                            <div>
+                                <a href="{% url 'update' comment.id %}" class="btn btn-primary">수정</a>
+                                <a href="{% url 'delete' comment.id %}" class="btn btn-danger">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- 댓글 목록 -->
 </div>
 <!-- //글목록 card -->
+<!-- 댓글 작성 링크 -->
+<div class='container'>
+    <a href="{% url 'comment_new' post.id %}" class="btn btn-primary">댓글 작성</a>
+</div>
 {% endblock %}

@@ -11,8 +11,15 @@ urlpatterns = [
     path('create/', views.create, name="create"),
     # READ(detail)
     path('<int:post_id>/', views.detail, name='detail'),
-    # UPDATE(update)
-    # DELETE(delete)
+
+    # CREATE(comment_create)
+    path('comment_new/<int:post_id>', views.comment_new, name='comment_new'),
+    
+    #UPDATE(update)
+    path('update/<int:comment_id>', views.comment_update, name='update'),
+
+    #DELETE(delete)
+    path('delete/<int:comment_id>', views.comment_delete, name= 'delete')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
