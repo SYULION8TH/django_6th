@@ -2,7 +2,7 @@
 {% block contents %}
 <!--content -->
 <div class='container' style="padding-top: 4rem;">
-    <form enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <table>
             {{form.as_table}}
