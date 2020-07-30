@@ -8,7 +8,7 @@
 # 세션준비
 1. git clone
     ```
-    git clone https://github.com/SYULION8TH/django_6th
+    git clone https://github.com/SYULION8TH/django_6th.git
     ```
 2. 가상환경 생성(clone받은 django_5th 경로에서 생성해주세요. )
     - window
