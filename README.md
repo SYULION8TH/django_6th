@@ -1,7 +1,29 @@
 # Django 6회차
 - [x] Comment
+- [x] Create
+- [x] Read
 - [x] Update
 - [x] Delete
+---
+# 세션준비
+1. git clone
+    ```
+    git clone https://github.com/SYULION8TH/django_6th
+    ```
+2. 가상환경 생성(clone받은 django_5th 경로에서 생성해주세요. )
+    - window
+    ```
+    python -m venv env
+    ```
+    - mac
+    ```
+    python3 -m venv env
+    ```
+3. requirements.txt 설치
+    ```
+    pip install -r requirements.txt
+    ```
+---
 
 # 댓글 모델 추가
 ## models.py
